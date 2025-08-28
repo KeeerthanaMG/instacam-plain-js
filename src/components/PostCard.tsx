@@ -2,7 +2,25 @@ import { useState } from "react";
 import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export const PostCard = ({ post }) => {
+interface Post {
+  id: number;
+  userId: number;
+  username: string;
+  userAvatar: string;
+  image: string;
+  caption: string;
+  likes: number;
+  comments: number;
+  timestamp: string;
+  isLiked: boolean;
+  isBookmarked: boolean;
+}
+
+interface PostCardProps {
+  post: Post;
+}
+
+export const PostCard = ({ post }: PostCardProps) => {
   const [isLiked, setIsLiked] = useState(post.isLiked);
   const [isBookmarked, setIsBookmarked] = useState(post.isBookmarked);
   const [likesCount, setLikesCount] = useState(post.likes);

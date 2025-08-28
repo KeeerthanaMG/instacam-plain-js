@@ -4,15 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-export const UploadModal = ({ isOpen, onClose }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
+interface UploadModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const UploadModal = ({ isOpen, onClose }: UploadModalProps) => {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [caption, setCaption] = useState("");
-  const [previewUrl, setPreviewUrl] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const { toast } = useToast();
 
   if (!isOpen) return null;
 
-  const handleFileSelect = (event) => {
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedFile(file);

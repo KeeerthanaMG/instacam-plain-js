@@ -1,5 +1,12 @@
 import { mockStories } from "@/utils/mockData";
 
+interface Story {
+  id: number;
+  userId: number;
+  username: string;
+  avatar: string;
+  hasNewStory: boolean;
+}
 
 export const StoryBar = () => {
   return (

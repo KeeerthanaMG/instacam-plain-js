@@ -3,7 +3,11 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { UploadModal } from "@/components/UploadModal";
 
-export const MainLayout = ({ children }) => {
+interface MainLayoutProps {
+  children: React.ReactNode;
+}
+
+export const MainLayout = ({ children }: MainLayoutProps) => {
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
 
   return (
