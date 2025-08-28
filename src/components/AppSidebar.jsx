@@ -33,17 +33,13 @@ const navigationItems = [
   { title: "Admin", url: "/admin", icon: Shield },
 ];
 
-interface AppSidebarProps {
-  onUploadClick: () => void;
-}
-
-export function AppSidebar({ onUploadClick }: AppSidebarProps) {
+export function AppSidebar({ onUploadClick }) {
   const { state } = useSidebar();
   const location = useLocation();
   const currentPath = location.pathname;
   const isCollapsed = state === "collapsed";
 
-  const isActive = (path: string) => {
+  const isActive = (path) => {
     if (path === "/") return currentPath === "/";
     return currentPath.startsWith(path);
   };
